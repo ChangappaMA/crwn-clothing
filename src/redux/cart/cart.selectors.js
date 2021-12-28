@@ -1,4 +1,3 @@
-import { createStore } from "redux";
 import { createSelector } from "reselect";
 
 const selectCart = (state) => state.cart;
@@ -16,4 +15,9 @@ export const selectCartitemsCount = createSelector(
         accumulatedQuantity + cartItem.quantity,
       0
     )
+);
+
+export const selectCartHidden = createSelector(
+  [selectCart],
+  (cart) => cart.hidden
 );
